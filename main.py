@@ -150,16 +150,16 @@ if __name__ == "__main__":
     grid.init(4, 2, dm.Topology.TORUS)
 
     params = op.ACOParameters(
-        n_ants = 1,
+        n_ants = 200,
         rho = 0.05,
-        n_best = 1,
-        n_iterations = 1,
+        n_best = 20,
+        n_iterations = 10,
         alpha = 1.,
         beta = 1.2,
     )
-    # n_procs = 3
-    opt = op.AntColony( params, grid, task_graph)
-    # opt = op.ParallelAntColony(n_procs, params, grid, task_graph)
+    n_procs = 10
+    # opt = op.AntColony( params, grid, task_graph)
+    opt = op.ParallelAntColony(n_procs, params, grid, task_graph)
 
     shortest = opt.run(once_every=1, show_traces= False)
     print(shortest)

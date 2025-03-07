@@ -27,9 +27,9 @@ import multiprocessing
 from concurrent.futures import ThreadPoolExecutor
 import time
 
-PATH_TO_SIMULATOR = os.path.join("/Users/edoardocabiati/Desktop/Cose_brutte_PoliMI/_tesi/restart", "lib")
+PATH_TO_SIMULATOR = os.path.join("/home/ecabiati/cellar/restart", "lib")
 sys.path.append(PATH_TO_SIMULATOR)
-import nocsim
+import nocsim #type: ignore
 
 class SimulatorStub:
 

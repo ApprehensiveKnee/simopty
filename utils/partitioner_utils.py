@@ -875,7 +875,6 @@ def _adaptive_parsel(layer, chosen_splitting = "spatial" ,FLOP_threshold = 20000
     return splitting_factors['spatial'], splitting_factors['output'], splitting_factors['input']
 
 
-
 def _build_spatial_deps(partitions_layer1 : List[PartitionInfo], partitions_layer2: List[PartitionInfo], deps: Dict = None):
     """
     The function builds the dependencies between the partitions of two layers based on the spatial partitioning technique:

@@ -476,7 +476,7 @@ class ParallelAntColony(AntColony):
             self.evaporate_pheromones(rho_step)
             self.statistics["mdn"].append(moving_average)
             self.statistics["std"].append(moving_std)
-            self.statistics["best"].append(shortest_path)
+            self.statistics["best"].append(shortest_path[2])
             if shortest_path[2] < self.statistics["absolute_best"][-1][2]:
                 self.statistics["absolute_best"].append(shortest_path)
             else:
@@ -502,6 +502,7 @@ class ParallelAntColony(AntColony):
                 if shortest_path[2] < all_time_shortest_path[2]:
                     all_time_shortest_path = shortest_path 
             # Finalize the simulation: save the data
+            os.makedirs("data", exist_ok = True)
             np.save("data/statistics.npy", self.statistics)
 
         return all_time_shortest_path
@@ -567,7 +568,7 @@ The following python classes for the optimization using  a Genetic Algorithm
 will be primarly be a wrapper for the pyGAD library.
 """
 
-import pygad
+import pygad # type: ignore
 from utils.ga_utils import *
 
 @dataclass
